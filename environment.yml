@@ -1,0 +1,13 @@
+name: reterm
+channels:
+  - conda-forge
+  - defaults
+  - bioconda
+dependencies:
+  - biopython
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - tqdm
+  - python-levenshtein

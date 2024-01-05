@@ -18,14 +18,7 @@ A small collection of tools for working with sequence files in a Python-based en
 * **`Biopython`** - tools for loading, manipulating and exporting read data
 * `tqdm` - used for pretty progress bars (currently only in rare cases)
 
-All tools are available via `conda` or `pip`:
-
-```py
-# conda
-conda -c conda-forge -c bioconda install <module>
-```
-
-```py
-# pip
-pip install <module>
+For convenience, a `conda` environment file has been included.
+```shell
+$ conda env create -f environment.yml
 ```
