@@ -1,4 +1,4 @@
-name: reterm
+name: seqtools
 channels:
   - conda-forge
   - defaults
@@ -10,4 +10,3 @@ dependencies:
   - matplotlib
   - seaborn
   - tqdm
-  - python-levenshtein
