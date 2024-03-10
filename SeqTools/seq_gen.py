@@ -34,16 +34,15 @@ def gen_qscore(seq_length, q_min, q_max):
 class SeqGen():
 	"""
 	Randomly generate DNA sequences (pure sequence, fasta or fastq format
-	>>> from SeqTools import SeqGen
 	"""
 	def __init__(self):
 		self
 
-	def __string__(self):
+	def __str__(self):
 		"""
 		Print generated sequences in specified (file) format
 		"""
-		return print(self.sequence_strings)
+		return self.sequence_strings
 
 	def gen_sequences(self, n_seq = 10, len_min = 10, len_max = 100, molecule_type = "DNA"):
 		"""
@@ -83,7 +82,7 @@ class SeqGen():
 			if format == "seq":
 				self.sequence_strings += f"{sequence}\n"
 
-		return self.sequence_strings
+		return print(self)
 	
 	def export(self, filename = None):
 		"""
@@ -92,13 +91,14 @@ class SeqGen():
 		filename = f"generated_sequences.{self.format}" if not filename else filename
 		with open(filename, "wt") as f:
 			f.writelines(self.sequence_strings)
+		print(f"Generated sequences in {self.format} format written to: {filename}")
 
 if __name__ == "__main__":
 	from argparse import ArgumentParser
 	
 	parser = ArgumentParser(description = "Randomly generate DNA sequences")
 	
-	parser.add_argument("-n", dest = "n_seq", type = int, default = 10, help = "Number of sequences to generate")
+	parser.add_argument("-n", dest = "n_seq", type = int, default = 10, help = "Number of sequences to generate (default : 10)")
 	parser.add_argument("--min", dest = "len_min", type = int, default = 10, help = "Min. sequence length")
 	parser.add_argument("--max", dest = "len_max", type = int, default = 100,help = "Max. sequence length")
 	parser.add_argument("--q_min", dest = "q_min", type = int, default = 10,help = "Min. PHRED score (default: 10)")
@@ -120,7 +120,6 @@ if __name__ == "__main__":
 	generator = SeqGen()
 	generator.gen_sequences(n_seq, len_min, len_max, mol_type)
 	generator.gen_read_file(format, q_min, q_max)
-	print(generator.sequence_strings)
 	
 	if export:
 		generator.export()

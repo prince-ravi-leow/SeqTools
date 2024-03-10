@@ -4,7 +4,7 @@ import random
 from pathlib import Path
 from Bio import SeqIO
 import pandas as pd
-from tools import SeqIO_load, guess_file_format, overwhy
+from seqtools_io import SeqIO_load, guess_file_format, overwhy
 
 class SeqSub():
 	def __init__(self, reads_file):
